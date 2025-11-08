@@ -58,23 +58,13 @@
     border-image: linear-gradient(to bottom, rgb(255, 200, 100), rgb(255, 80, 0)) 1 !important;
     background: transparent !important;
     overflow: hidden !important;
-    transition: border-color 0.05s, background-color 0.05s !important;
-    border-radius: 20px !important;  /* Soft rounded corners */
+    transition: border-image 0.1s, background-color 0.1s, box-shadow 0.1s !important;
+    border-radius: 20px !important;
     padding: 0.7rem 8rem !important;
     cursor: pointer !important;
     font-family: 'Out Of My League', sans-serif !important;
   }
 
-  #addtocart.cta-btn-wrapper button.buy-cta:hover {
-    border-color: white !important;
-    box-shadow: 0 0 20px rgba(192, 247, 255, 0.4) !important;
-  }
-  
-  #addtocart.cta-btn-wrapper button.buy-cta:active {
-    background-color: rgb(0, 0, 0) !important;
-    border-color: rgb(70, 40, 0) !important;
-    box-shadow: none !important;
-  }
 
 .cta-btn-wrapper button.buy-cta::before {
   content: '' !important;
@@ -137,6 +127,23 @@
 .cta-btn-wrapper button.buy-cta:active .btn-video,
 .cta-btn-wrapper button.buy-cta:active:hover .btn-video {
   opacity: 0.1 !important;
+}
+
+.cta-btn-wrapper button.buy-cta:active .btn-text {
+  color: rgb(0, 200, 200) !important;
+}
+
+/* #addtocart specific hover and active effects */
+#addtocart.cta-btn-wrapper button.buy-cta:hover {
+  border-image: linear-gradient(to bottom, rgb(255, 186, 49), rgb(70, 8, 0)) 1 !important;
+  box-shadow: 0 0 20px rgba(192, 247, 255, 0.4) !important;
+}
+
+#addtocart.cta-btn-wrapper button.buy-cta:active,
+#addtocart.cta-btn-wrapper button.buy-cta:active:hover {
+  background-color: rgba(255, 179, 0, 0.433) !important;
+  border-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(107, 0, 0)) 1 !important;
+  box-shadow: none !important;
 }
 
   

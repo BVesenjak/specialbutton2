@@ -178,7 +178,31 @@ button {
   .cta-btn-wrapper button.buy-cta:active:hover .btn-video {
     opacity: 0.1 !important;
   }
-  
+
+  .cta-btn-wrapper button.buy-cta:active .btn-text {
+    color: rgb(0, 200, 200) !important;
+  }
+
+  /* #addtocart base style */
+  #addtocart.cta-btn-wrapper button.buy-cta {
+    border: 17px solid !important;
+    border-image: linear-gradient(to bottom, rgb(255, 200, 100), rgb(255, 80, 0)) 1 !important;
+    transition: border-image 0.1s, background-color 0.1s, box-shadow 0.1s !important;
+  }
+
+  /* #addtocart specific hover and active effects */
+  #addtocart.cta-btn-wrapper button.buy-cta:hover {
+    border-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(240, 240, 240)) 1 !important;
+    box-shadow: 0 0 20px rgba(192, 247, 255, 0.4) !important;
+  }
+
+  #addtocart.cta-btn-wrapper button.buy-cta:active,
+  #addtocart.cta-btn-wrapper button.buy-cta:active:hover {
+    background-color: rgb(0, 0, 0) !important;
+    border-image: linear-gradient(to bottom, rgb(0, 70, 70), rgb(0, 40, 40)) 1 !important;
+    box-shadow: none !important;
+  }
+
     
     @keyframes fadeOutSteps {
       to { opacity: 0; }
