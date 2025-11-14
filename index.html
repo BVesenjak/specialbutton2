@@ -62,12 +62,15 @@
   <br><br><br><br><br><br><br>
   <br><br><br><br><br><br><br>
   <div id="addtocart" class="cta-btn-wrapper">
-    <button class="buy-cta">
-  <video class="btn-video btn-video-default" autoplay loop muted playsinline>
+    <button class="buy-cta" id="addtocart-btn">
+  <video class="btn-video btn-video-idle" muted playsinline style="opacity: 0;">
     <source src="assets/btn-bg-1.mp4" type="video/mp4">
   </video>
-  <video class="btn-video btn-video-hover" autoplay loop muted playsinline>
-    <source src="assets/btn-bg-2.mp4" type="video/mp4">
+  <video class="btn-video btn-video-cart-hover" loop muted playsinline style="opacity: 0;">
+    <source src="assets/btn-cart-hover.mp4" type="video/mp4">
+  </video>
+  <video class="btn-video btn-video-cart-active" muted playsinline style="opacity: 0;">
+    <source src="assets/btn-cart-active.mp4" type="video/mp4">
   </video>
   <span class="btn-text" style="
   font-weight: 800;
@@ -82,7 +85,7 @@
   -webkit-text-fill-color: transparent;
   display: inline-block;
   text-transform: uppercase;
-">BUY NOW</span>
+">add to cart</span>
 </button>
 </div>
   <br>
@@ -107,4 +110,90 @@
     <div class="white-line white-line-right"></div>
     <span class="btn-text">BUY NOW</span>
   </button>
+
+  <script>
+    // Video state management for #addtocart button
+    (function() {
+      const button = document.getElementById('addtocart-btn');
+      if (!button) return;
+
+      const idleVideo = button.querySelector('.btn-video-idle');
+      const hoverVideo = button.querySelector('.btn-video-cart-hover');
+      const activeVideo = button.querySelector('.btn-video-cart-active');
+      
+      let isHovering = false;
+      let isPlayingActive = false;
+
+      // Function to show only one video
+      function showVideo(video) {
+        [idleVideo, hoverVideo, activeVideo].forEach(v => {
+          v.style.opacity = '0';
+          v.pause();
+        });
+        
+        if (video) {
+          video.style.opacity = '1';
+          video.currentTime = 0;
+          video.play().catch(err => console.log('Video play error:', err));
+        }
+      }
+
+      // Function to set idle state (100% opacity background, no video)
+      function setIdleState() {
+        [idleVideo, hoverVideo, activeVideo].forEach(v => {
+          v.style.opacity = '0';
+          v.pause();
+        });
+        button.style.backgroundColor = 'rgba(255, 179, 0, 1)'; // 100% opacity
+      }
+
+      // Function to set hover state
+      function setHoverState() {
+        if (isPlayingActive) return; // Don't interrupt active video
+        button.style.backgroundColor = 'transparent';
+        showVideo(hoverVideo);
+      }
+
+      // Function to set active state
+      function setActiveState() {
+        isPlayingActive = true;
+        button.style.backgroundColor = 'transparent';
+        showVideo(activeVideo);
+      }
+
+      // Initialize in idle state
+      setIdleState();
+
+      // Hover event
+      button.addEventListener('mouseenter', function() {
+        isHovering = true;
+        if (!isPlayingActive) {
+          setHoverState();
+        }
+      });
+
+      // Leave event
+      button.addEventListener('mouseleave', function() {
+        isHovering = false;
+        if (!isPlayingActive) {
+          setIdleState();
+        }
+      });
+
+      // Click event
+      button.addEventListener('click', function(e) {
+        setActiveState();
+      });
+
+      // When active video ends
+      activeVideo.addEventListener('ended', function() {
+        isPlayingActive = false;
+        if (isHovering) {
+          setHoverState();
+        } else {
+          setIdleState();
+        }
+      });
+    })();
+  </script>
   

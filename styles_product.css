@@ -187,7 +187,12 @@ button {
   #addtocart.cta-btn-wrapper button.buy-cta {
     border: 17px solid !important;
     border-image: linear-gradient(to bottom, rgb(255, 200, 100), rgb(255, 80, 0)) 1 !important;
-    transition: border-image 0.1s, background-color 0.1s, box-shadow 0.1s !important;
+    background-color: rgba(255, 179, 0, 1) !important;
+    transition: border-image 0.1s, background-color 0.2s, box-shadow 0.1s !important;
+  }
+
+  #addtocart.cta-btn-wrapper button.buy-cta .btn-video {
+    transition: opacity 0.3s ease !important;
   }
 
   /* #addtocart specific hover and active effects */

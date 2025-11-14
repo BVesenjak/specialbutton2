@@ -56,13 +56,17 @@
     position: relative !important;
     border: 17px solid !important;
     border-image: linear-gradient(to bottom, rgb(255, 200, 100), rgb(255, 80, 0)) 1 !important;
-    background: transparent !important;
+    background-color: rgb(13, 0, 70) !important;
     overflow: hidden !important;
-    transition: border-image 0.1s, background-color 0.1s, box-shadow 0.1s !important;
+    transition: border-image 0s, background-color 0.2s, box-shadow 0.1s !important;
     border-radius: 20px !important;
     padding: 0.7rem 8rem !important;
     cursor: pointer !important;
     font-family: 'Out Of My League', sans-serif !important;
+  }
+
+  #addtocart.cta-btn-wrapper button.buy-cta .btn-video {
+    transition: opacity 0s ease !important;
   }
 
 
@@ -83,7 +87,7 @@
   height: 100% !important;
   object-fit: cover !important;
   z-index: -1 !important;
-  transition: opacity 0.1s steps(30) !important;
+  transition: opacity 0s ease !important;
 }
 
 .cta-btn-wrapper button.buy-cta .btn-video-default {
@@ -130,19 +134,23 @@
 }
 
 .cta-btn-wrapper button.buy-cta:active .btn-text {
-  color: rgb(0, 200, 200) !important;
+    -webkit-text-fill-color: rgb(0, 30, 30) !important;
+}
+
+#addtocart.cta-btn-wrapper button.buy-cta:active .btn-text {
+    -webkit-text-fill-color: rgb(30, 0, 15) !important;
 }
 
 /* #addtocart specific hover and active effects */
 #addtocart.cta-btn-wrapper button.buy-cta:hover {
-  border-image: linear-gradient(to bottom, rgb(255, 186, 49), rgb(70, 8, 0)) 1 !important;
+    border-image: linear-gradient(to bottom, rgb(230, 235, 240), rgb(140, 150, 160)) 1 !important;
   box-shadow: 0 0 20px rgba(192, 247, 255, 0.4) !important;
 }
 
 #addtocart.cta-btn-wrapper button.buy-cta:active,
 #addtocart.cta-btn-wrapper button.buy-cta:active:hover {
   background-color: rgba(255, 179, 0, 0.433) !important;
-  border-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(107, 0, 0)) 1 !important;
+  border-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(100, 110, 120)) 1 !importan
   box-shadow: none !important;
 }
 
@@ -289,5 +297,28 @@
   opacity: 0.9;
 }
 
+.cta-btn-wrapper button.buy-cta {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    -webkit-user-select: none !important;
+  }
 
-  
+  @media (hover: none) {
+    .cta-btn-wrapper button.buy-cta:hover {
+      border-color: rgb(0, 200, 200) !important;
+      box-shadow: none !important;
+    }
+    
+    .cta-btn-wrapper button.buy-cta:hover .btn-video-default {
+      opacity: 0.6 !important;
+    }
+    
+    .cta-btn-wrapper button.buy-cta:hover .btn-video-hover {
+      opacity: 0 !important;
+    }
+    
+    #addtocart.cta-btn-wrapper button.buy-cta:hover {
+      border-image: linear-gradient(to bottom, rgb(255, 200, 100), rgb(255, 80, 0)) 1 !important;
+      box-shadow: none !important;
+    }
+  }
