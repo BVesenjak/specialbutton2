@@ -56,7 +56,7 @@
     position: relative !important;
     border: 17px solid !important;
     border-image: linear-gradient(to bottom, rgb(255, 200, 100), rgb(255, 80, 0)) 1 !important;
-    background-color: rgb(13, 0, 70) !important;
+    background-color: rgb(70, 55, 0) !important;
     overflow: hidden !important;
     transition: border-image 0s, background-color 0.2s, box-shadow 0.1s !important;
     border-radius: 20px !important;
@@ -138,7 +138,7 @@
 }
 
 #addtocart.cta-btn-wrapper button.buy-cta:active .btn-text {
-    -webkit-text-fill-color: rgb(30, 0, 15) !important;
+    -webkit-text-fill-color: rgb(255, 81, 0) !important;
 }
 
 /* #addtocart specific hover and active effects */
@@ -318,7 +318,7 @@
     }
     
     #addtocart.cta-btn-wrapper button.buy-cta:hover {
-      border-image: linear-gradient(to bottom, rgb(255, 200, 100), rgb(255, 80, 0)) 1 !important;
+        border-image: linear-gradient(to bottom, rgb(230, 235, 240), rgb(140, 150, 160)) 1 !important;
       box-shadow: none !important;
     }
   }
